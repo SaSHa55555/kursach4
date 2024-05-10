@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  petshop:
+    build: .
+    ports:
+      - "8080:8080"
+    networks: [ "microservices" ]
+
+  postgres:
+    image: bitnami/postgresql
+    container_name: postgres
+    volumes:
+      - "./migrations:/docker-entrypoint-initdb.d"
+    environment:
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    networks: [ "microservices" ]
+
+networks:
+  microservices:
+    name: microservices
