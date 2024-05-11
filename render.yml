@@ -1,0 +1,22 @@
+services:
+  petshop:
+    image: mealekks/b7:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
+  postgres:
+    image: bitnami/postgresql
+    environment:
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+networks:
+  microservices:
+    name: microservices
+commands:
+  start: docker-compose up -d
