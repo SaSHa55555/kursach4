@@ -20,7 +20,7 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar ">
     <div class="container">
         <a href="/" class="navbar-brand waves-effect">
-            <strong class="orange-text">
+            <strong class="pink-text">
                 позорный пес
             </strong>
         </a>
@@ -99,7 +99,7 @@
                 <div class="card-body text-center">
                     <h5 class="grey-text" th:text="${product.getName()}">Name</h5>
                     <h5 class="dark-grey-text" th:text="${product.getPrice()+' p.'}">Price</h5>
-                    <a th:href="@{/product(productId=${product.getId()})}" class="btn btn-warning">Перейти</a>
+                    <a th:href="@{/product(productId=${product.getId()})}" class="btn btn-my">Перейти</a>
                 </div>
             </div>
         </div>

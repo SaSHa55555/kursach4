@@ -1,7 +1,9 @@
 FROM openjdk:11-jdk
 
-WORKDIR /app
+COPY ./* /app
 
-COPY ./* .
+COPY target/petshop-0.0.1-SNAPSHOT.jar /app
 
-CMD ["java", "-jar", "target/petshop-0.0.1-SNAPSHOT.jar", "com.mirea.PetshopApplication"]
+COPY ./src/main/resources/application.properties /config/smt/application.yaml
+
+CMD ["java", "-jar", "./app/petshop-0.0.1-SNAPSHOT.jar"]

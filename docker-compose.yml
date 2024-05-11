@@ -5,7 +5,14 @@ services:
     build: .
     ports:
       - "8080:8080"
-    networks: [ "microservices" ]
+    depends_on:
+      - postgres
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
+    networks:
+      - microservices
 
   postgres:
     image: bitnami/postgresql
@@ -19,7 +26,8 @@ services:
     ports:
       - "5432:5432"
     restart: unless-stopped
-    networks: [ "microservices" ]
+    networks:
+      - microservices
 
 networks:
   microservices:

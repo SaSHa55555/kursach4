@@ -180,11 +180,16 @@
 }
 
 .pink {
-    background-color: #e91e63 !important
+    background-color: #FFB6C1 !important
 }
 
 .pink-text {
-    color: #e91e63 !important
+    color: #FFB6C1 !important
+}
+
+.btn-my {
+    color: #fff;
+    background-color: #FFB6C1 !important
 }
 
 .rgba-pink-slight,
