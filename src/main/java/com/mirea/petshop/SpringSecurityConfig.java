@@ -14,18 +14,20 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
+public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     private final UserService userService;
 
     public SpringSecurityConfig(UserService userService) {
         this.userService = userService;
     }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
                 .userDetailsService(userService)
                 .passwordEncoder(new BCryptPasswordEncoder());
     }
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -41,7 +43,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
                 .antMatchers("/products").permitAll()
                 .antMatchers("/product").permitAll()
                 .antMatchers("/login", "/sign").permitAll()
-                .antMatchers("/logout").hasAnyAuthority( "USER")
+                .antMatchers("/logout").hasAnyAuthority("USER")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().and().logout().logoutSuccessUrl("/").and().sessionManagement()

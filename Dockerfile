@@ -1,9 +1,9 @@
 FROM openjdk:11-jdk
 
-COPY ./* /app
+WORKDIR /app
 
-COPY target/petshop-0.0.1-SNAPSHOT.jar /app
+COPY . /app
 
-COPY ./src/main/resources/application.properties /config/smt/application.yaml
+EXPOSE 8080
 
-CMD ["java", "-jar", "./app/petshop-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "target/petshop-0.0.1-SNAPSHOT.jar"]

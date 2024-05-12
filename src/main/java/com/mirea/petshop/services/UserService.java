@@ -37,13 +37,16 @@ public class UserService implements UserDetailsService {
         u.setRole("USER");
         iUserRepository.save(u);
     }
-    public List<User> getAll(){
+
+    public List<User> getAll() {
         return iUserRepository.findAll();
     }
-    public  void saveUser(User user){
+
+    public void saveUser(User user) {
         iUserRepository.save(user);
     }
-    public void deleteUser(int id){
+
+    public void deleteUser(int id) {
         iUserRepository.deleteById(id);
     }
 }

@@ -1,0 +1,22 @@
+spring:
+  web:
+    resources:
+      static-locations: file:src/main/resources/static/
+  application:
+    name: petstore
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: "jdbc:postgresql://dpg-covrv5021fec73fqg9k0-a.oregon-postgres.render.com:5432/dbpost_inpz"
+    hikari:
+      username: user
+      password: TanNta601EFFE2Lowel78xqHqTKo7mdd
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: create
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+server:
+  port: 8080

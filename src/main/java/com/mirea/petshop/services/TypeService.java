@@ -12,12 +12,15 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TypeService {
     private ITypeRepository iTypeRepository;
+
     @Autowired
-    public TypeService(ITypeRepository iTypeRepository){
-        this.iTypeRepository=iTypeRepository;
+    public TypeService(ITypeRepository iTypeRepository) {
+        this.iTypeRepository = iTypeRepository;
     }
-    public List<Type> getAllTypes(){
+
+    public List<Type> getAllTypes() {
         return iTypeRepository.findAll();
     }
 
 }
+
