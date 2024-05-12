@@ -6,4 +6,4 @@ COPY . /app
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "target/petshop-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "build/petshop-0.0.1-SNAPSHOT.jar"]
