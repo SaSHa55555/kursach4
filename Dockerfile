@@ -4,6 +4,6 @@ WORKDIR /app
 
 COPY . /app
 
-EXPOSE 8080
+EXPOSE 8084
 
-CMD ["java", "-jar", "/app/build/petshop-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "/app/build/petshop-0.0.1-SNAPSHOT.jar"]
